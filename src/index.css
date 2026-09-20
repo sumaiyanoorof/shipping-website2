@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+@import "tailwindcss";
+
+:root {
+	--background: #f7f9fc;
+	--foreground: #122033;
+	--card: #ffffff;
+	--card-foreground: #122033;
+	--primary: #102a43;
+	--primary-foreground: #f8fbff;
+	--accent: #12b89c;
+	--accent-foreground: #062d2a;
+	--muted: #eef3f7;
+	--muted-foreground: #5d6b7b;
+	--border: #dbe4ec;
+	--input-background: #ffffff;
+	--ring: #12b89c;
+}
+
+@theme inline {
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-card: var(--card);
+	--color-card-foreground: var(--card-foreground);
+	--color-primary: var(--primary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-accent: var(--accent);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-muted: var(--muted);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-border: var(--border);
+	--color-input-background: var(--input-background);
+	--color-ring: var(--ring);
+}
+
+* { border-color: var(--border); }
+html { scroll-behavior: smooth; }
+body {
+	min-width: 320px;
+	margin: 0;
+	background: var(--background);
+	color: var(--foreground);
+	font-family: 'DM Sans', sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4, button, label { font-family: 'Manrope', sans-serif; }
+h1, h2, h3, h4, p { margin-top: 0; }
+button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
