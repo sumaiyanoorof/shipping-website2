@@ -3,6 +3,9 @@ import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import { Button } from '../ui/button';
 import { toast } from 'sonner';
+import { ImageWithFallback } from '../figma/ImageWithFallback';
+import shipImage6 from '../../assets/shipImage9.jpg';
+
 
 export function ContactPage() {
   const [formData, setFormData] = useState({
@@ -70,27 +73,54 @@ export function ContactPage() {
   ];
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen ">
       {/* Hero Section */}
-      <section className="relative py-20 bg-primary text-primary-foreground overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-gradient-to-br from-accent to-transparent" />
+      <section className="relative min-h-170 h-[min(860px,100svh)] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <ImageWithFallback
+            src={shipImage6}
+            alt="Cargo ship at sea"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(8,29,48,0.94)_0%,rgba(16,42,67,0.72)_54%,rgba(18,184,156,0.18)_100%)]" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center"
+            transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl text-primary-foreground mb-6">
-              Get in Touch
-            </h1>
-            <p className="text-lg sm:text-xl text-primary-foreground/90 max-w-3xl mx-auto">
-              Ready to optimize your logistics? Contact us today for a customized quote.
-            </p>
+            <motion.h1
+              className="text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-white mb-10 max-w-4xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+            >
+             Get in Touch
+            </motion.h1>
+            <motion.p
+              className="text-base sm:text-xl leading-relaxed text-white/90 max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+            >
+               Ready to optimize your logistics? Contact us today for a customized quote.
+            </motion.p>
+            
           </motion.div>
         </div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 mb-6"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 2 }}
+        >
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center p-1">
+            <div className="w-1.5 h-3 bg-white/50 rounded-full" />
+          </div>
+        </motion.div>
       </section>
 
       {/* Contact Form & Info */}
@@ -123,7 +153,7 @@ export function ContactPage() {
                     className="bg-card p-4 rounded-lg shadow-sm border border-border"
                   >
                     <div className="flex items-start gap-3">
-                      <div className="bg-primary/10 p-2 rounded-lg flex-shrink-0">
+                      <div className="bg-primary/10 p-2 rounded-lg shrink-0">
                         <Icon className="h-5 w-5 text-primary" />
                       </div>
                       <div>
@@ -241,7 +271,7 @@ export function ContactPage() {
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full bg-accent text-accent-foreground hover:bg-accent/90 group"
+                    className="w-full bg-yellow-500 text-accent-foreground hover:bg-accent/90 group"
                   >
                     Submit Request
                     <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -277,9 +307,9 @@ export function ContactPage() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
                 whileHover={{ scale: 1.05 }}
-                className="bg-card p-4 rounded-lg shadow-sm text-center cursor-pointer hover:shadow-md transition-shadow"
+                className="bg-card p-4 rounded-lg shadow-sm text-center cursor-pointer hover:shadow-md  transition-shadow"
               >
-                <MapPin className="h-6 w-6 text-accent mx-auto mb-2" />
+                <MapPin className="h-6 w-6 text-yellow-400 mx-auto mb-2" />
                 <div className="text-foreground mb-1">{office.city}</div>
                 <div className="text-xs text-muted-foreground">{office.country}</div>
               </motion.div>
@@ -307,15 +337,18 @@ export function ContactPage() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="rounded-lg overflow-hidden shadow-xl aspect-[16/9] bg-muted flex items-center justify-center"
+            className="rounded-lg overflow-hidden shadow-xl aspect-video bg-muted"
           >
-            <div className="text-center p-8">
-              <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
-              <p className="text-muted-foreground">Interactive map would be displayed here</p>
-              <p className="text-sm text-muted-foreground mt-2">
-                Integration with mapping services like Google Maps
-              </p>
-            </div>
+            <iframe
+              title="Google Maps location of our headquarters"
+              src={`https://maps.google.com/maps?q=${encodeURIComponent(
+                '1234 Harbor Drive, Suite 500, Port City, PC 12345'
+              )}&output=embed`}
+              className="h-full w-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
           </motion.div>
         </div>
       </section>

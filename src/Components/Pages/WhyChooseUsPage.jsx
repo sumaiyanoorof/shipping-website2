@@ -15,6 +15,7 @@ import {
   Leaf,
 } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
+import shipImage from '../../assets/shipImage2.jpg';
 
 export function WhyChooseUsPage() {
   const benefits = [
@@ -113,26 +114,55 @@ export function WhyChooseUsPage() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative py-20 bg-primary text-primary-foreground overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-gradient-to-br from-accent to-transparent" />
+      <section className="relative min-h-170 h-[min(860px,100svh)] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <ImageWithFallback
+            src={shipImage}
+            alt="Cargo ship at sea"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(8,29,48,0.94)_0%,rgba(16,42,67,0.72)_54%,rgba(18,184,156,0.18)_100%)]" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center"
+            transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl text-primary-foreground mb-6">
+            <motion.h1
+              className="text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-white mb-10 max-w-4xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+            >
               Why Choose GlobalShip?
-            </h1>
-            <p className="text-lg sm:text-xl text-primary-foreground/90 max-w-3xl mx-auto">
+            </motion.h1>
+            <motion.p
+              className="text-base sm:text-xl leading-relaxed text-white/90 max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+            >
               Discover what sets us apart as the preferred logistics partner for businesses worldwide.
-            </p>
+            </motion.p>
+            
           </motion.div>
         </div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 mb-6"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 2 }}
+        >
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center p-1">
+            <div className="w-1.5 h-3 bg-white/50 rounded-full" />
+          </div>
+        </motion.div>
       </section>
+
+      
 
       {/* Key Benefits */}
       <section className="py-20">
@@ -160,13 +190,13 @@ export function WhyChooseUsPage() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                  className="bg-card p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-border"
+                  className="bg-card p-6 rounded-lg shadow-sm hover:shadow-yellow-300 transition-shadow border border-border"
                 >
                   <div className="flex items-start justify-between mb-4">
-                    <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center">
-                      <Icon className="h-6 w-6 text-primary" />
+                    <div className="bg-yellow-300 w-12 h-12 rounded-lg flex items-center justify-center">
+                      <Icon className="h-6 w-6 text-gray-600" />
                     </div>
-                    <div className="text-accent px-3 py-1 bg-accent/10 rounded-full">
+                    <div className="text-gray-600 px-3 py-1 bg-yellow-300 rounded-full">
                       {benefit.stat}
                     </div>
                   </div>
@@ -206,8 +236,8 @@ export function WhyChooseUsPage() {
                   transition={{ delay: index * 0.05 }}
                   className="bg-card p-6 rounded-lg shadow-sm text-center"
                 >
-                  <div className="bg-accent/10 w-14 h-14 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                    <Icon className="h-7 w-7 text-accent" />
+                  <div className="bg-yellow-300 w-14 h-14 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                    <Icon className="h-7 w-7 text-gray-600" />
                   </div>
                   <h3 className="mb-2">{feature.title}</h3>
                   <p className="text-sm text-muted-foreground">{feature.description}</p>
@@ -236,7 +266,7 @@ export function WhyChooseUsPage() {
                 transition={{ delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="text-3xl sm:text-4xl lg:text-5xl text-accent mb-2">
+                <div className="text-3xl sm:text-4xl lg:text-5xl text-yellow-300 mb-2">
                   {stat.value}
                 </div>
                 <div className="text-sm sm:text-base text-primary-foreground/80">
@@ -275,7 +305,7 @@ export function WhyChooseUsPage() {
               >
                 <div className="mb-4">
                   <svg
-                    className="w-8 h-8 text-accent opacity-50"
+                    className="w-8 h-8 text-yellow-300 opacity-50"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >

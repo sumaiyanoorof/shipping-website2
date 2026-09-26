@@ -23,6 +23,8 @@ export default function App() {
 
   const pageOrder = ['home', 'about', 'services', 'why-choose-us', 'contact'];
 const handleNavigate = (page) => {
+  if (!Object.hasOwn(pages, page)) return;
+
   const currentIndex = pageOrder.indexOf(currentPage);
   const nextIndex = pageOrder.indexOf(page);
   setDirection(nextIndex > currentIndex ? 1 : -1);

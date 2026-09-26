@@ -34,7 +34,7 @@ export function Navigation({ currentPage, onNavigate }) {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 shadow-[0_8px_30px_rgba(16,42,67,0.08)] backdrop-blur-xl' : 'bg-primary/95 backdrop-blur-md'
+        isScrolled ? 'bg-gray-950 shadow-[0_8px_30px_rgba(16,42,67,0.08)] backdrop-blur-xl' : 'bg-gray-900 backdrop-blur-md'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,12 +46,12 @@ export function Navigation({ currentPage, onNavigate }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <div className="bg-primary p-2 bg-gray-800 rounded-lg">
-              <Anchor className="h-6 w-6 text-white" />
+            <div className="p-2 bg-yellow-400 rounded-lg">
+              <Anchor className="h-6 w-6 text-gray-600" />
             </div>
             <div className="flex flex-col">
-              <span className={`${isScrolled ? 'text-primary' : 'text-white'} tracking-tight font-bold`}>GlobalShip</span>
-              <span className={`${isScrolled ? 'text-muted-foreground' : 'text-white/70'} text-xs`}>Logistics LLC</span>
+              <span className={`${isScrolled ? 'text-white' : 'text-white'} tracking-tight font-bold`}>GlobalShip</span>
+              <span className={`${isScrolled ? 'text-white/90' : 'text-white/95'} text-xs`}>Logistics LLC</span>
             </div>
           </motion.div>
 
@@ -63,15 +63,15 @@ export function Navigation({ currentPage, onNavigate }) {
                 onClick={() => handleNavClick(item.path)}
                 className={`relative px-1 py-2 transition-colors ${
                   currentPage === item.path
-                    ? 'text-teal-500'
-                    : `${isScrolled ? 'text-foreground hover:text-primary' : 'text-white/80 hover:text-white'}`
+                    ? 'text-yellow-400'
+                    : `${isScrolled ? 'text-white hover:text-primary' : 'text-white/90 hover:text-yellow-400'}`
                 }`}
               >
                 {item.name}
                 {currentPage === item.path && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-teal-500"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-yellow-400"
                     initial={false}
                     transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                   />
@@ -80,7 +80,7 @@ export function Navigation({ currentPage, onNavigate }) {
             ))}
             <Button
               onClick={() => handleNavClick('contact')}
-              className="bg-teal-500 text-white hover:bg-[#00d4aa]/90"
+              className="bg-yellow-500 text-gray-700 font-bold  hover:bg-yellow-400 hover:text-white "
             >
               Get a Quote
             </Button>
@@ -124,7 +124,7 @@ export function Navigation({ currentPage, onNavigate }) {
               ))}
               <Button
                 onClick={() => handleNavClick('contact')}
-                className="w-full bg-accent text-[#00d4aa] hover:bg-[#00d4aa]/90"
+                className="w-full bg-yellow-500 text-gray-700 font-bold hover:bg-yellow-400 hover:text-white"
               >
                 Get a Quote
               </Button>

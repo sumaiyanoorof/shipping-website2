@@ -2,6 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Target, Eye, Award, Users, Globe, Shield } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
+import shipImage from '../../assets/shipImage5.jpg';
+import shipImage1 from '../../assets/shipImage2.jpg';
+
 
 export function AboutPage() {
   const values = [
@@ -36,29 +39,56 @@ export function AboutPage() {
   ];
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-primary text-primary-foreground overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-gradient-to-br from-accent to-transparent" />
+      <section className="relative min-h-170 h-[min(860px,100svh)] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <ImageWithFallback
+            src={shipImage}
+            alt="Cargo ship at sea"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(8,29,48,0.94)_0%,rgba(16,42,67,0.72)_54%,rgba(18,184,156,0.18)_100%)]" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center"
+            transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl text-primary-foreground mb-6">
-              About GlobalShip Logistics
-            </h1>
-            <p className="text-lg sm:text-xl text-primary-foreground/90 max-w-3xl mx-auto">
+            <motion.h1
+              className="text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-white mb-10 max-w-4xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+            >
+             About GlobalShip Logistics
+            </motion.h1>
+            <motion.p
+              className="text-base sm:text-xl leading-relaxed text-white/90 max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+            >
               Leading the way in global logistics with innovation, integrity, and an unwavering commitment to excellence.
-            </p>
+            </motion.p>
+
           </motion.div>
         </div>
-      </section>
 
+        {/* Scroll Indicator */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 mb-6"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 2 }}
+        >
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center p-1">
+            <div className="w-1.5 h-3 bg-white/50 rounded-full" />
+          </div>
+        </motion.div>
+      </section>
+      
       {/* Company Introduction */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -92,7 +122,7 @@ export function AboutPage() {
             >
               <div className="rounded-lg overflow-hidden shadow-xl">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1681770678332-3a190df72091?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnbG9iYWwlMjBuZXR3b3JrJTIwYnVzaW5lc3N8ZW58MXx8fHwxNjU4MTMwODd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  src={shipImage1}
                   alt="Global network"
                   className="w-full h-110 object-cover"
                 />
@@ -110,10 +140,10 @@ export function AboutPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-card p-8 rounded-lg shadow-sm"
+              className="bg-card p-8 rounded-lg shadow-sm hover:shadow-yellow-500 transition-shadow hover:translate-y-1"
             >
-              <div className="bg-primary/10 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
-                <Target className="h-7 w-7 text-primary" />
+              <div className="bg-yellow-300 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                <Target className="h-7 w-7 text-gray-600" />
               </div>
               <h3 className="text-2xl mb-4">Our Mission</h3>
               <p className="text-muted-foreground">
@@ -126,10 +156,11 @@ export function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="bg-card p-8 rounded-lg shadow-sm"
+              className="bg-card p-8 rounded-lg shadow-sm hover:shadow-yellow-500 transition-shadow hover:translate-y-1"
             >
-              <div className="bg-accent/10 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
-                <Eye className="h-7 w-7 text-accent" />
+              <div className="bg-yellow-300 w-14 h-14 rounded-lg flex items-center justify-center mb-4 
+              transition-colors">
+                <Eye className="h-7 w-7 text-gray-600" />
               </div>
               <h3 className="text-2xl mb-4">Our Vision</h3>
               <p className="text-muted-foreground">
@@ -166,10 +197,10 @@ export function AboutPage() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                  className="bg-card p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow text-center"
+                  className="bg-card p-6 rounded-lg shadow-sm hover:shadow-yellow-500  transition-shadow text-center"
                 >
-                  <div className="bg-primary/10 w-14 h-14 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                    <Icon className="h-7 w-7 text-primary" />
+                  <div className="bg-yellow-300 w-14 h-14 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                    <Icon className="h-7 w-7 text-gray-600" />
                   </div>
                   <h3 className="mb-2">{value.title}</h3>
                   <p className="text-sm text-muted-foreground">{value.description}</p>
@@ -206,7 +237,7 @@ export function AboutPage() {
                 className="flex gap-6 mb-8 last:mb-0"
               >
                 <div className="flex flex-col items-center">
-                  <div className="bg-accent text-accent-foreground w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="bg-yellow-400 text-accent-foreground w-16 h-16 rounded-full flex items-center justify-center shrink-0">
                     <span>{item.year}</span>
                   </div>
                   {index !== timeline.length - 1 && (
@@ -248,7 +279,7 @@ export function AboutPage() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <div className="text-3xl sm:text-4xl text-primary mb-2">{stat.number}</div>
+                  <div className="text-3xl sm:text-4xl text-yellow-400 mb-2">{stat.number}</div>
                   <div className="text-sm text-muted-foreground">{stat.label}</div>
                 </motion.div>
               ))}

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Ship, Plane, Truck, Warehouse, TrendingUp, CheckCircle2 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
+import shipImage from '../../assets/shipImage1.jpg';
 
 export function HomePage({ onNavigate }) {
   const services = [
@@ -49,7 +50,7 @@ export function HomePage({ onNavigate }) {
     return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-[680px] h-[min(860px,100svh)] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-170 h-[min(860px,100svh)] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <ImageWithFallback
             src="https://images.unsplash.com/photo-1663801563712-ebf3c6a78239?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYXJnbyUyMHNoaXAlMjBvY2VhbnxlbnwxfHx8fDE3NjU3NTc3MDN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
@@ -90,7 +91,7 @@ export function HomePage({ onNavigate }) {
               <Button
                 size="lg"
                 onClick={() => onNavigate('contact')}
-                className="bg-teal-500 text-white/90 hover:bg-[#00d4aa]/90 group"
+                className="bg-yellow-500 text-gray-700 font-bold hover:bg-yellow-400 hover:text-white group"
               >
                 Get a Quote
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -99,7 +100,7 @@ export function HomePage({ onNavigate }) {
                 size="lg"
                 variant="outline"
                 onClick={() => onNavigate('services')}
-                className="bg-white/10 text-white border-white/30 hover:bg-white/20 backdrop-blur-sm"
+                className="bg-white/10 text-white border-white/30 hover:bg-white/20 hover:text-white backdrop-blur-sm"
               >
                 Our Services
               </Button>
@@ -132,7 +133,7 @@ export function HomePage({ onNavigate }) {
                 transition={{ delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="text-3xl sm:text-4xl lg:text-5xl text-accent mb-2">
+                <div className="text-3xl sm:text-4xl lg:text-5xl text-yellow-400 mb-2">
                   {stat.value}
                 </div>
                 <div className="text-sm sm:text-base text-primary-foreground/80">
@@ -170,11 +171,11 @@ export function HomePage({ onNavigate }) {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                  className="bg-card p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+                  className="bg-card p-6 rounded-lg shadow-sm hover:shadow-yellow-500 transition-shadow cursor-pointer"
                   onClick={() => onNavigate('services')}
                 >
-                  <div className="bg-primary/10 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
-                    <Icon className="h-7 w-7 text-primary" />
+                  <div className="bg-yellow-300 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                    <Icon className="h-7 w-7 text-gray-600" />
                   </div>
                   <h3 className="mb-2">{service.title}</h3>
                   <p className="text-sm text-muted-foreground">{service.description}</p>
@@ -192,10 +193,10 @@ export function HomePage({ onNavigate }) {
             <Button
               onClick={() => onNavigate('services')}
               variant="outline"
-              className="group"
+              className="group hover:bg-yellow-400"
             >
               View All Services
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1  transition-transform" />
             </Button>
           </motion.div>
         </div>
@@ -226,14 +227,14 @@ export function HomePage({ onNavigate }) {
                     transition={{ delay: index * 0.1 }}
                     className="flex items-start gap-3"
                   >
-                    <CheckCircle2 className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-6 w-6 text-yellow-400 shrink-0 mt-0.5" />
                     <span className="text-foreground">{feature}</span>
                   </motion.div>
                 ))}
               </div>
               <Button
                 onClick={() => onNavigate('why-choose-us')}
-                className="mt-8 bg-primary text-primary-foreground hover:bg-primary/90"
+                className="mt-8 bg-yellow-500 text-gray-700 font-bold hover:bg-yellow-400 hover:text-white"
               >
                 Learn More
               </Button>
@@ -247,12 +248,12 @@ export function HomePage({ onNavigate }) {
             >
               <div className="relative rounded-lg overflow-hidden shadow-xl">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1672870152741-e526cfe5419b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzaGlwcGluZyUyMGNvbnRhaW5lcnMlMjBwb3J0fGVufDF8fHx8MTc2NTY5NTUyMHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  src={shipImage}
                   alt="Shipping containers at port"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -left-6 bg-accent text-accent-foreground p-6 rounded-lg shadow-lg">
+              <div className="absolute -bottom-6 -left-6 bg-yellow-400 text-gray-700 p-6 rounded-lg shadow-lg">
                 <TrendingUp className="h-8 w-8 mb-2" />
                 <div className="text-2xl mb-1">Industry Leader</div>
                 <div className="text-sm opacity-90">Trusted Worldwide</div>
@@ -263,7 +264,7 @@ export function HomePage({ onNavigate }) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      <section className="py-20 bg-yellow-400 text-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -271,13 +272,13 @@ export function HomePage({ onNavigate }) {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl sm:text-4xl mb-4">Ready to Ship With Us?</h2>
-            <p className="text-lg text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
               Get a custom quote for your shipping needs and experience the GlobalShip difference.
             </p>
             <Button
               size="lg"
               onClick={() => onNavigate('contact')}
-              className="bg-accent text-accent-foreground hover:bg-accent/90"
+              className="bg-gray-700 text-white hover:bg-gray-600"
             >
               Request a Quote
             </Button>
